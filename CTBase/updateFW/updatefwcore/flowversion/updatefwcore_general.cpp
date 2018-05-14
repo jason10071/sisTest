@@ -79,10 +79,12 @@ UpdateFWCore_general::exec()
         if( getUpdateFWReference(RS_XRAM, CI_MASTER)->getSlaveNum() > 0 )
         {
             /* havs slave, so need to wait device back, and then do slave update */
+            SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "havs slave, need to wait device back.");
             resetDevice(true);
         }
         else
         {
+            SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "no slave, not need to wait device back.");
             resetDevice();
         }
     }
