@@ -228,7 +228,12 @@ UpdateFWCore::destroy(bool isEnableCtlReportToOs)
     {
         if(isEnableCtlReportToOs)
         {
+            SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "isEnableCtlReportToOs : true");
             enableCtlReportToOs();
+        }
+        else
+        {
+            SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "isEnableCtlReportToOs : false");
         }
     }
 }

@@ -193,7 +193,12 @@ ISiSProcedure::reOpenDevice(std::string deviceIDOpened, int waitResetSec, bool i
         {
             if( isCheckDeviceBack )
             {
+                SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "isCheckDeviceBack : true" );
                 deviceIDReOpened = openDevice( deviceIDOpened );
+            }
+            else
+            {
+                SIS_LOG_I(SiSLog::getOwnerSiS(), TAG, "isCheckDeviceBack : false" );
             }
             break;
         }
