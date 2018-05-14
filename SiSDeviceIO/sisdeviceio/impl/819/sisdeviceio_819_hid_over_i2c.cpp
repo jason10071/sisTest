@@ -123,6 +123,9 @@ SiSDeviceIO_819_hid_over_i2c::openDevice()
 
     const char* devName = opened->getNodeName().c_str();
 
+	printf("tmp : 1 %s\n", opened->getNodeName().c_str());
+	printf("tmp : 2 %s\n", devName);
+
     if(m_fd >= 0)
     {
         close(m_fd);
