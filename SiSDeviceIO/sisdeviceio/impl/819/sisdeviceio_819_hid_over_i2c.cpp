@@ -121,7 +121,8 @@ SiSDeviceIO_819_hid_over_i2c::openDevice()
         throw SiSDeviceException("openDevice, nodeName is empty", -1);
     }
 
-    const char* devName = opened->getNodeName().c_str();
+    //const char* devName = opened->getNodeName().c_str();
+    const char* devName = "/dev/sis_touch_i2c_hidraw";
 
     if(m_fd >= 0)
     {
@@ -137,6 +138,7 @@ SiSDeviceIO_819_hid_over_i2c::openDevice()
     else
     {
         SIS_LOG_D(SiSLog::getOwnerSiS(), TAG, "isUsingIOCTL : false");
+	 printf("tmp : open %s\n", devName);
         m_fd = open(devName, O_RDWR | O_NONBLOCK);
     }
 
