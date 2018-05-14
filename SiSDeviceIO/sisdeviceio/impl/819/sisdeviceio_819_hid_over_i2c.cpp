@@ -122,7 +122,11 @@ SiSDeviceIO_819_hid_over_i2c::openDevice()
     }
 
     //const char* devName = opened->getNodeName().c_str();
-    const char* devName = "/dev/sis_touch_i2c_hidraw";
+   char* devNameTmp;
+   devNameTmp = new char[opened->getNodeName().length() + 1];
+   strcpy(devNameTmp, opened->getNodeName().c_str());
+
+    const char* devName = devNameTmp;
 
     if(m_fd >= 0)
     {
